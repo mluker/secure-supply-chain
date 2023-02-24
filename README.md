@@ -4,8 +4,13 @@ Use the provided devcontainer to start working with SBOMs and Vulnerability scan
 
 ## Environment variables
 
+Set the following environment variables for use within each tool
+
 ```bash
+# The image to work with
 IMAGE=nginx:latest
+
+# The root folder for the results output
 RESULTS_FOLDER=results
 ```
 
