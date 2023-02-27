@@ -12,7 +12,6 @@
 		}
 	},
 	"features": {
-		"ghcr.io/devcontainers/features/docker-in-docker:latest": {},
 		"ghcr.io/devcontainers/features/azure-cli:latest": {}
 	}
 }
