@@ -8,7 +8,7 @@ Set the following environment variables for use within each tool
 
 ```bash
 # The image to work with
-IMAGE=cmacsbom101zda.azurecr.io/poi:20230224
+IMAGE=nginx
 
 # The root folder for the results output
 RESULTS_FOLDER=results
