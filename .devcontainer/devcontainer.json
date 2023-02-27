@@ -1,9 +1,16 @@
 {
 	"name": "SBOM & Vuln",
-	"dockerFile": "Dockerfile",
-	"extensions": [
-		"ms-vscode.azurecli",
-	],
+	"build" : {
+		"dockerfile": "Dockerfile"		
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.azurecli",
+				"github.copilot"
+			]
+		}
+	},
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:latest": {},
 		"ghcr.io/devcontainers/features/azure-cli:latest": {}

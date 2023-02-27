@@ -8,7 +8,7 @@ Set the following environment variables for use within each tool
 
 ```bash
 # The image to work with
-IMAGE=nginx:latest
+IMAGE=cmacsbom101zda.azurecr.io/poi:20230224
 
 # The root folder for the results output
 RESULTS_FOLDER=results
@@ -19,7 +19,7 @@ RESULTS_FOLDER=results
 ### Syft
 
 ```bash
-syft $IMAGE --file $RESULTS_FOLDER/syft-results.txt -o syft-json
+syft $IMAGE -o syft-json --file "${RESULTS_FOLDER}"/${IMAGE}.txt | $(sed 's/://g;s/\.//g;s/\///g;s/@//g')
 ```
 
 ### Microsoft sbom-tool

@@ -18,6 +18,8 @@ RUN curl -Lo syft.tar.gz https://github.com/anchore/syft/releases/download/v${SY
     && rm -rf syft.tar.gz
 
 ARG MS_SBOM_TOOL=0.3.1
-RUN curl -Lo sbom-tool-linux-x64 https://github.com/microsoft/sbom-tool/releases/download/v${MS_SBOM_TOOL}/sbom-tool-linux-x64 \
-    && chmod +x sbom-tool-linux-x64 \
-    && mv sbom-tool-linux-x64 /usr/local/bin/sbom-tool
+RUN curl -Lo sbom-tool https://github.com/microsoft/sbom-tool/releases/download/v${MS_SBOM_TOOL}/sbom-tool-linux-x64 \
+    && chmod +x sbom-tool \
+    && mv sbom-tool /usr/local/bin/sbom-tool
+
+USER root
