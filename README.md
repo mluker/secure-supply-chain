@@ -19,7 +19,7 @@ RESULTS_FOLDER=results
 ### Syft
 
 ```bash
-syft $IMAGE -o syft-json --file "${RESULTS_FOLDER}"/${IMAGE}.txt | $(sed 's/://g;s/\.//g;s/\///g;s/@//g')
+syft $IMAGE -o spdx-json --file "${RESULTS_FOLDER}"/"$(echo syft_${IMAGE}.json | sed 's/://g;s/\///g;s/@//g')"
 ```
 
 ### Microsoft sbom-tool
@@ -41,11 +41,14 @@ sbom-tool generate -di $IMAGE \
 ### Grype
 
 ```bash
-grype $IMAGE --file $RESULTS_FOLDER/grype-results.txt -o sarif
+grype $IMAGE -o sarif --file "${RESULTS_FOLDER}"/"$(echo grype_${IMAGE}.json | sed 's/://g;s/\///g;s/@//g')"
 ```
 
 ### Trivy
 
 ```bash
-trivy image $IMAGE -o $RESULTS_FOLDER/trivy-results.txt -f sarif
+trivy image $IMAGE -f sarif -o "${RESULTS_FOLDER}"/"$(echo trivy_${IMAGE}.json | sed 's/://g;s/\///g;s/@//g')"
 ```
+
+# Bulk command
+./generate-all.sh "nginx,busybox" true true true true results
